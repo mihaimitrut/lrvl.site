@@ -16,6 +16,11 @@ class ProductController extends Controller
     {
         $this->product = $product;
     }
+    public function index() {
+        return view('index', ['products' => Product::inRandomOrder()->limit(12)->get()->toArray(),
+            'categories' => $this->product->getCategories()->toArray()
+        ]);
+    }
     public function show($category_slug, $title_slug)
     {
         return view('show', ['product' => Product::where('title_slug', $title_slug)->where('category_slug', $category_slug)->get()->first()->toArray(),
