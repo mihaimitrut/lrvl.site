@@ -53,5 +53,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ga('send', 'pageview');
 
     </script>
-    
+
 </head>
