@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Single :: w3layouts</title>
+    @if (isset($products))
+    <title>Lrvl :: {{ generateCategoryTitle(Request::url()) }}</title>
+    <meta name="description" content="{{ generateCategoryTitle(Request::url()) }}" />
+    @elseif (isset($product))
+    <title>Lrvl :: {{ generateCategoryTitle(Request::url()) }}</title>
+    <meta name="description" content="{{ $product['description'] }}" />
+    @else
+    <title>Lrvl :: Electronice, TV, Laptop</title>
+    <meta name="description" content="Electronice, TV, Laptop" />
+    @endif
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" >
     <!-- Custom Theme files -->
     <!--theme-style-->
