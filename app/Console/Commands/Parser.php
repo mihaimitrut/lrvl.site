@@ -55,7 +55,14 @@ class Parser extends Command
     private function scrie($citeste,$scrie){
         $file_on_server_location = $this->storage_path.$scrie;
 
-        $sp = fopen($citeste, 'r');
+		$opts=array(
+		    "ssl"=>array(
+		        "verify_peer"=>false,
+		        "verify_peer_name"=>false,
+		    ),
+		);
+
+        $sp = fopen($citeste, 'r', false, stream_context_create($opts));
         $op = fopen($file_on_server_location, 'w');
 
         while (!feof($sp)) {
